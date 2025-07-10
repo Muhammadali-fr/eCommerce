@@ -5,6 +5,9 @@ import { ChevronRight } from "lucide-react";
 // data 
 import famousItems from "../../data/data";
 
+// link 
+import Link from "next/link";
+
 export default function Famous() {
 
     return (
@@ -18,13 +21,15 @@ export default function Famous() {
             <ul className="grid grid-cols-4 gap-5">
                 {
                     famousItems.map((item, id) => (
-                        <li key={id} className="w-full h-[400px] rounded-lg overflow-hidden p-2 bg-[#e8e7e5] flex items-center justify-between flex-col">
-                            <img className="h-[70%] w-full object-cover object-center rounded-lg" src={item.image} alt={item.description} />
-                            <div className="py-2">
-                                <p className="font-semibold"><span className="text-violet-950">{item.price}</span> so'm</p>
-                                <p className="text-sm text-gray-800 line-clamp-2 leading-snug">{item.description}</p>
-                            </div>
-                            <button className="w-full py-1.5 bg-violet-700 text-white rounded-lg hover:bg-violet-600 cursor-pointer">Add to Cart</button>
+                        <li key={id} className="w-full h-[415px] rounded-lg overflow-hidden bg-[#e8e7e5] ">
+                            <Link href={`/product/${item.id}`} className="p-2 h-full flex items-center justify-between flex-col">
+                                <img className="h-[70%] w-full object-cover object-center rounded-lg" src={item.image} alt={item.description} />
+                                <div className="py-2">
+                                    <p className="font-semibold"><span className="text-violet-950">{item.price}</span> so'm</p>
+                                    <p className="text-sm text-gray-800 line-clamp-2 leading-snug">{item.name}</p>
+                                </div>
+                                <button className="w-full py-1.5 bg-violet-700 text-white rounded-lg hover:bg-violet-600 cursor-pointer">Add to Cart</button>
+                            </Link>
                         </li>
                     ))
                 }
