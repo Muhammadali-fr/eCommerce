@@ -14,6 +14,9 @@ import "swiper/css/navigation";
 // lucide 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+// components 
+import Loader from "@/app/components/Loader";
+
 export default function ProductPage({ params }: { params: Promise<{ id: number }> }) {
   const { id } = use(params);
   const [currentProduct, setCurrentProduct] = useState<any>(null);
@@ -32,13 +35,15 @@ export default function ProductPage({ params }: { params: Promise<{ id: number }
   }, []);
 
   if (!currentProduct) {
-    return <h1>Loading...</h1>;
+    return <Loader />;
   }
 
   return (
-    <div className="w-[90%] max-w-[990px] mx-auto flex items-start justify-between py-5 gap-5">
+    <div className="w-[90%] max-w-[990px] mx-auto flex items-center justify-between py-5 gap-10">
       <div className="w-[50%] space-y-2">
-        <div className="w-full relative">
+        <div className="w-full relative space-y-2">
+
+          {/* next prev buttons here  */}
           <button
             ref={prevRef}
             className="bg-white w-[40px] h-[40px] flex items-center justify-center rounded-full text-gray-800 cursor-pointer hover:bg-gray-300 absolute left-2 top-1/2 -translate-y-1/2 z-10"
@@ -86,12 +91,16 @@ export default function ProductPage({ params }: { params: Promise<{ id: number }
       </div>
 
       {/* right  */}
-      <div className="w-[50%]">
-        <p>
-          Mahsulot narxi: <span>{currentProduct.price}</span>
+      <div className="w-[50%] space-y-3">
+
+        {/* prouduct name here */}
+        <p className="text-4xl font-semibold line-clamp-2 text-gray-800">{currentProduct.name}</p>
+
+        <p className="text-2xl font-semibold">
+          Mahsulot narxi: <span className="text-violet-700">{currentProduct.price}</span> so'm
         </p>
-        <p>
-          Mahsulot haqida: <span>{currentProduct.description}</span>
+        <p className="text-xl">
+          Mahsulot haqida: <span className="text-xl text-gray-800">{currentProduct.description}</span>
         </p>
         <button className="w-full py-4 bg-violet-700 text-white rounded-lg cursor-pointer hover:bg-violet-600">Add to Cart</button>
       </div>
