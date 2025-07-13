@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@heroui/spinner": "^2.2.19",
+    "axios": "^1.10.0",
     "heroui-cli": "^1.2.3",
     "lucide-react": "^0.525.0",
     "next": "15.3.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-loading-icons": "^1.1.0",
     "react-spinners": "^0.17.0",
     "swiper": "^11.2.10"
   },

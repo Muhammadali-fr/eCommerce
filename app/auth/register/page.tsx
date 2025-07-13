@@ -1,8 +1,45 @@
+"use client"
 
 // react-router-dom 
 import Link from "next/link"
 
+// react
+import { useState } from "react"
+
+// fetcher 
+import { registerUser } from "@/app/api/services/auth";
+
+// Loader
+import ButtonLoader from "@/app/components/ButtonLoader";
+
 export default function Register() {
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [loader, setLoader] = useState(false)
+
+    // register function 
+    const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (!name || !email) {
+            alert("Please fill in all fields");
+            return;
+        };
+ 
+        try{
+            setLoader(true);
+            const res = await registerUser({name, email});
+            console.log("Registration response:", res);
+            alert("Registration successful! Please check your email to verify your account.");
+        }
+        catch(err){
+            console.error("Registration failed:", err);
+            alert("Registration failed. Please try again.");
+        }finally{
+            setLoader(false);
+        };
+    }
+
     return (
         <div className="w-full h-screen flex items-center">
 
@@ -10,7 +47,6 @@ export default function Register() {
             <Link href={"/"}>
                 <img className="absolute top-5 left-5 w-[50px] h-[50px] rounded-full" src="/assets/logo.png" alt="logo" />
             </Link>
-
 
             {/* left  */}
             <div className="w-full md:w-[50%] h-screen flex items-center justify-center ">
@@ -29,27 +65,21 @@ export default function Register() {
                         <div className="w-full h-[1px] bg-gray-400"></div>
                     </div>
 
-                    <form className="flex flex-col gap-3">
+                    <form onSubmit={handleRegister} className="flex flex-col gap-3">
 
                         {/* name  */}
                         <label className="flex flex-col gap-0.5">
                             <p className="text-sm">Name</p>
-                            <input autoFocus className="p-2 border border-gray-400 rounded-lg" type="text" />
+                            <input value={name} onChange={e => setName(e.target.value)} autoFocus className="p-2 border border-gray-400 rounded-lg" type="text" />
                         </label>
 
                         {/* email  */}
                         <label className="flex flex-col gap-0.5">
                             <p className="text-sm">Email</p>
-                            <input className="p-2 border border-gray-400 rounded-lg" type="text" />
+                            <input value={email} onChange={e => setEmail(e.target.value)} className="p-2 border border-gray-400 rounded-lg" type="text" />
                         </label>
 
-                        {/* password  */}
-                        <label className="flex flex-col gap-0.5">
-                            <p className="text-sm">Password</p>
-                            <input className="p-2 border border-gray-400 rounded-lg" type="text" />
-                        </label>
-
-                        <button className="w-full bg-[#4c64d9] hover:bg-[#4c80d9] text-white text-center py-2 rounded-lg cursor-pointer">Log in</button>
+                        <button className="w-full h-[42px] bg-[#4c64d9] hover:bg-[#4c80d9] text-white text-center rounded-lg cursor-pointer flex items-center justify-center">{loader ? <ButtonLoader/> : "Log in"}</button>
                     </form>
 
                     <p className="text-sm">Have an account? <Link className="text-blue-700 underline" href={"/auth/login"}>Login</Link></p>

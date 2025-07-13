@@ -36,13 +36,6 @@ export default function Login() {
                             <input autoFocus className="p-2 border border-gray-400 rounded-lg" type="text" />
                         </label>
 
-                        {/* password  */}
-                        <label className="flex flex-col gap-0.5">
-                            <p className="text-sm">Password</p>
-                            <input className="p-2 border border-gray-400 rounded-lg" type="text" />
-                        </label>
-                        <Link className="text-sm text-blue-700 underline" href="/forgot-password">Forgot password?</Link>
-
                         <button className="w-full bg-[#4c64d9] hover:bg-[#4c80d9] text-white text-center py-2 rounded-lg cursor-pointer">Log in</button>
                     </form>
 
