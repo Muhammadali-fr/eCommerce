@@ -25,17 +25,17 @@ export default function Register() {
             alert("Please fill in all fields");
             return;
         };
- 
-        try{
+
+        try {
             setLoader(true);
-            const res = await registerUser({name, email});
+            const res = await registerUser({ name, email });
             console.log("Registration response:", res);
             alert("Registration successful! Please check your email to verify your account.");
         }
-        catch(err){
+        catch (err) {
             console.error("Registration failed:", err);
             alert("Registration failed. Please try again.");
-        }finally{
+        } finally {
             setLoader(false);
         };
     }
@@ -79,7 +79,15 @@ export default function Register() {
                             <input value={email} onChange={e => setEmail(e.target.value)} className="p-2 border border-gray-400 rounded-lg" type="text" />
                         </label>
 
-                        <button className="w-full h-[42px] bg-[#4c64d9] hover:bg-[#4c80d9] text-white text-center rounded-lg cursor-pointer flex items-center justify-center">{loader ? <ButtonLoader/> : "Log in"}</button>
+                        <button type="submit" className="w-full h-[42px] bg-[#4c64d9] hover:bg-[#4c80d9] text-white text-center rounded-lg cursor-pointer flex items-center justify-center">{loader ? <ButtonLoader /> : "Log in"}</button>
+
+                        {/* mail  */}
+                        <a target="_blank" href="https://mail.google.com/">
+                            <button type="button" className="flex items-center justify-center w-full gap-2 text-gray-700 border border-gray-400 rounded-lg cursor-pointer hover:bg-gray-100 py-2">
+                                <img className="w-[20px] h-[20px]" src="/assets/gmail.png" alt="mail" />
+                                Open Mail
+                            </button>
+                        </a>
                     </form>
 
                     <p className="text-sm">Have an account? <Link className="text-blue-700 underline" href={"/auth/login"}>Login</Link></p>

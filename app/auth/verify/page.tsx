@@ -30,12 +30,12 @@ export default function VerifyAccount() {
       }
 
       try {
-        await verifyMagicLink(token);
+        await verifyMagicLink({token});
       }
       catch (err) {
         console.error("Verification failed:", err);
         alert("Verification failed. Please try again.");
-        router.push("/auth/login");
+        // router.push("/auth/login");
       }
     }
 

@@ -15,8 +15,7 @@ export async function loginUser(data: { email: string }) {
 }
 
 export async function verifyMagicLink(data: { token: string }) {
-    return fetcher("/auth/verify-magic-link", {
-        method: "POST",
-        data
+    return fetcher(`/auth/verify-magic-link?token=${data.token}`, {
+        method: "GET",
     })
 }
