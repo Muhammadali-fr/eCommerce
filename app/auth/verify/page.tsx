@@ -30,7 +30,13 @@ export default function VerifyAccount() {
       }
 
       try {
-        await verifyMagicLink({token});
+        const res: verifyResponse = await verifyMagicLink({ token });
+        if (res?.accessToken && res?.resetToken) {
+          localStorage.setItem("accessToken", res.accessToken);
+          localStorage.setItem("resetToken", res.resetToken);
+        } else {
+          throw new Error("Missing tokens in response.");
+        }
       }
       catch (err) {
         console.error("Verification failed:", err);
