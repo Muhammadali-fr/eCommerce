@@ -54,10 +54,13 @@ export default function Register() {
 
                     <h1 className="text-4xl md:text-5xl font-bold text-black">Welcome</h1>
                     <p>Sign up to your acconct</p>
-                    <button className="flex items-center justify-center w-full gap-2 text-gray-700 border border-gray-400 rounded-lg cursor-pointer hover:bg-gray-100 py-2">
-                        <img className="w-[20px] h-[20px]" src="/assets/google.svg" alt="google" />
-                        Log in with Google
-                    </button>
+                    {/* mail  */}
+                    <a href="https://mail.google.com/">
+                        <button type="button" className="flex items-center justify-center w-full gap-2 text-gray-700 border border-gray-400 rounded-lg cursor-pointer hover:bg-gray-100 py-2 mb-3">
+                            <img className="w-[20px] h-[20px]" src="/assets/gmail.png" alt="mail" />
+                            Open Mail
+                        </button>
+                    </a>
 
                     <div className="w-full flex items-center justify-between gap-2">
                         <div className="w-full h-[1px] bg-gray-400"></div>
@@ -80,14 +83,6 @@ export default function Register() {
                         </label>
 
                         <button type="submit" className="w-full h-[42px] bg-[#4c64d9] hover:bg-[#4c80d9] text-white text-center rounded-lg cursor-pointer flex items-center justify-center">{loader ? <ButtonLoader /> : "Log in"}</button>
-
-                        {/* mail  */}
-                        <a target="_blank" href="https://mail.google.com/">
-                            <button type="button" className="flex items-center justify-center w-full gap-2 text-gray-700 border border-gray-400 rounded-lg cursor-pointer hover:bg-gray-100 py-2">
-                                <img className="w-[20px] h-[20px]" src="/assets/gmail.png" alt="mail" />
-                                Open Mail
-                            </button>
-                        </a>
                     </form>
 
                     <p className="text-sm">Have an account? <Link className="text-blue-700 underline" href={"/auth/login"}>Login</Link></p>

@@ -1,8 +1,43 @@
+"use client"
 
 // react-router-dom 
 import Link from "next/link"
 
+// react 
+import { useEffect, useState } from "react"
+
+// fetcher 
+import { loginUser } from "@/app/api/services/auth";
+
+// loaders 
+import ButtonLoader from "@/app/components/ButtonLoader";
+
 export default function Login() {
+
+    const [email, setEmail] = useState("");
+    const [loader, setLoader] = useState(false);
+
+    // handle login
+    const handleLogin = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!email) {
+            alert("Please enter your email");
+            return;
+
+        }
+        try {
+            setLoader(true);
+            const res = await loginUser({ email });
+            console.log("Login response:", res);
+        
+            alert("link sent to your mail!");
+        }
+        catch (err) {
+            console.error("Login error:", err);
+            alert("An error occurred while logging in. Please try again.");
+        }finally{setLoader(false)};
+    };
+
     return (
         <div className="w-full h-screen flex items-center">
 
@@ -18,10 +53,13 @@ export default function Login() {
 
                     <h1 className="text-4xl md:text-5xl font-bold text-black">Welcome back</h1>
                     <p>Log in to your acconct</p>
-                    <button className="flex items-center justify-center w-full gap-2 text-gray-700 border border-gray-400 rounded-lg cursor-pointer hover:bg-gray-100 py-2">
-                        <img className="w-[20px] h-[20px]" src="/assets/google.svg" alt="google" />
-                        Log in with Google
-                    </button>
+                    {/* mail  */}
+                    <a href="https://mail.google.com/">
+                        <button type="button" className="flex items-center justify-center w-full gap-2 text-gray-700 border border-gray-400 rounded-lg cursor-pointer hover:bg-gray-100 py-2 mb-3">
+                            <img className="w-[20px] h-[20px]" src="/assets/gmail.png" alt="mail" />
+                            Open Mail
+                        </button>
+                    </a>
 
                     <div className="w-full flex items-center justify-between gap-2">
                         <div className="w-full h-[1px] bg-gray-400"></div>
@@ -29,14 +67,14 @@ export default function Login() {
                         <div className="w-full h-[1px] bg-gray-400"></div>
                     </div>
 
-                    <form className="flex flex-col gap-3">
+                    <form onSubmit={handleLogin} className="flex flex-col gap-3">
                         {/* email  */}
                         <label className="flex flex-col gap-0.5">
                             <p className="text-sm">Email</p>
-                            <input autoFocus className="p-2 border border-gray-400 rounded-lg" type="text" />
+                            <input value={email} onChange={e => setEmail(e.target.value)} autoFocus className="p-2 border border-gray-400 rounded-lg" type="text" />
                         </label>
 
-                        <button className="w-full bg-[#4c64d9] hover:bg-[#4c80d9] text-white text-center py-2 rounded-lg cursor-pointer">Log in</button>
+                        <button className="w-full h-[42px] bg-[#4c64d9] hover:bg-[#4c80d9] text-white text-center rounded-lg cursor-pointer flex items-center justify-center">{loader ? <ButtonLoader/> : "Log in"}</button>
                     </form>
 
                     <p className="text-sm">Don't have an account? <Link className="text-blue-700 underline" href={"/auth/register"}>Sign up</Link></p>
