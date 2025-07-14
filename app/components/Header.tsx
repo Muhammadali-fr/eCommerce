@@ -8,9 +8,11 @@ import { Search, ShoppingCart } from "lucide-react"
 // navigation 
 import { usePathname } from "next/navigation"
 import path from "path";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
 
 export default function Header() {
-
+    const user = useSelector((state: RootState) => state.user.user);
     const pathname = usePathname();
 
     return (
@@ -32,9 +34,12 @@ export default function Header() {
                         <Link className="px-2" href={"/shop"}>shop</Link>
                     </li>
 
-                    <li className={`font-semibold  cursor-pointer ${pathname === "/login" ? "text-violet-700" : "text-gray-600"}`}>
-                        <Link className="px-2" href={"/auth/login"}>login</Link>
-                    </li>
+                    {!user &&
+                        <li className={`font-semibold  cursor-pointer ${pathname === "/login" ? "text-violet-700" : "text-gray-600"}`}>
+                            <Link className="px-2" href={"/auth/login"}>login</Link>
+                        </li>
+                    }
+
                 </ul>
 
                 <ul className="flex items-center gap-3  text-sm text-gray-500">
