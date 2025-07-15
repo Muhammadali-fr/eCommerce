@@ -23,8 +23,8 @@ export default function Login() {
         if (!email) {
             alert("Please enter your email");
             return;
-
         }
+        
         try {
             setLoader(true);
             const res = await loginUser({ email });

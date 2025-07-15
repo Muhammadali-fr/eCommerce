@@ -18,11 +18,6 @@ export default function StoreUser() {
       const accessToken = localStorage.getItem("accessToken");
       const resetToken = localStorage.getItem("resetToken");
 
-      if (!accessToken) {
-        router.push("/auth/login");
-        return;
-      }
-
       if (!user) {
         try {
           setLoader(true);
@@ -30,7 +25,6 @@ export default function StoreUser() {
           dispatch(setUser(res));
         } catch (error) {
           console.error("Error fetching profile:", error);
-          router.push("/auth/login");
         } finally {
           setLoader(false);
         }

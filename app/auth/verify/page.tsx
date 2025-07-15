@@ -24,11 +24,6 @@ export default function VerifyAccount() {
 
   useEffect(() => {
     const handleVerify = async () => {
-      if (!token) {
-        router.push("/auth/login");
-        return
-      }
-
       try {
         const res: verifyResponse = await verifyMagicLink({ token });
         if (res?.accessToken && res?.resetToken) {
