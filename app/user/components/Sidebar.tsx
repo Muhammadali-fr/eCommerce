@@ -14,7 +14,7 @@ export default function Sidebar() {
     const pathname = usePathname();
 
     return (
-        <div className="min-w-[250px] w-[250px] h-screen bg-gray-200 p-3 flex flex-col border-r border-gray-300">
+        <div className="min-w-[250px] w-[250px] h-screen bg-gray-100 p-3 flex flex-col border-r border-gray-300">
 
             <Link href={"/"}>
                 <div className="flex items-center justify-center">
