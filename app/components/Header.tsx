@@ -66,7 +66,7 @@ export default function Header() {
                                     </li>
 
                                     {/* line  */}
-                                    <div className="border border-gray-200 w-full h-[1px] my-1"></div>
+                                    <div className="bg-gray-200 w-full h-[1px] my-1"></div>
 
                                     <Link href={"/user/settings"}>
                                         <li className="flex items center gap-1 p-2 hover:bg-gray-200 rounded cursor-pointer select-none">
