@@ -29,6 +29,8 @@ export default function VerifyAccount() {
         if (res?.accessToken && res?.resetToken) {
           localStorage.setItem("accessToken", res.accessToken);
           localStorage.setItem("resetToken", res.resetToken);
+          router.push("/");
+          window.location.reload();
         } else {
           throw new Error("Missing tokens in response.");
         }

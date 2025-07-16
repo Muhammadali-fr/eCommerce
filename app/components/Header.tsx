@@ -3,13 +3,20 @@
 import Link from "next/link"
 
 // lucide 
-import { Search, ShoppingCart } from "lucide-react"
+import { Search, Settings, ShoppingCart, User } from "lucide-react"
 
 // navigation 
 import { usePathname } from "next/navigation"
 import path from "path";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
+
+// popover 
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from "../../components/ui/popover"
 
 export default function Header() {
     const user = useSelector((state: RootState) => state.user.user);
@@ -45,6 +52,32 @@ export default function Header() {
                 <ul className="flex items-center gap-3  text-sm text-gray-500">
                     <li><Search /></li>
                     <li><ShoppingCart /></li>
+                    <li>
+                        <Popover>
+                            <PopoverTrigger className="flex items-center-justify-center cursor-pointer">
+                                {/* user icon here  */}
+                                <User />
+
+                            </PopoverTrigger>
+                            <PopoverContent className="mx-5 w-[200px] p-1">
+                                <ul className="flex flex-col m-1 text-gray-700">
+                                    <li className="flex items-center gap-1 p-2 select-none">
+                                        <User />  {user?.name}
+                                    </li>
+
+                                    {/* line  */}
+                                    <div className="border border-gray-200 w-full h-[1px] my-1"></div>
+
+                                    <Link href={"/user/settings"}>
+                                        <li className="flex items center gap-1 p-2 hover:bg-gray-200 rounded cursor-pointer select-none">
+                                            <Settings />
+                                            Settings
+                                        </li>
+                                    </Link>
+                                </ul>
+                            </PopoverContent>
+                        </Popover>
+                    </li>
                 </ul>
             </div>
         </div>
