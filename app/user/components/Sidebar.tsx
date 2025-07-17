@@ -1,64 +1,59 @@
 "use client"
 
-// pathname 
-import { usePathname } from "next/navigation";
-
-// lucide 
-import { CircleUserRound, PackageSearch, ChartLine, LogOut, ArrowLeftToLine } from "lucide-react";
-
-// link 
+import { usePathname } from "next/navigation"
 import Link from "next/link"
+import {
+  CircleUserRound,
+  PackageSearch,
+  ChartLine,
+  LogOut,
+  ArrowLeftToLine
+} from "lucide-react"
+
+const navItems = [
+  { label: "Edit Profile", href: "/user/settings", icon: CircleUserRound },
+  { label: "Products", href: "/user/products", icon: PackageSearch },
+  { label: "Charts", href: "/user/charts", icon: ChartLine },
+  { label: "Home", href: "/", icon: ArrowLeftToLine },
+]
 
 export default function Sidebar() {
+  const pathname = usePathname()
 
-    const pathname = usePathname();
+  return (
+    <aside className="w-64 h-screen bg-white border-r flex flex-col justify-between px-4 py-6 shadow-sm">
+      {/* Logo */}
+      <Link href="/" className="flex items-center gap-3 mb-6 px-2">
+        <img src="/assets/logo.png" alt="logo" className="w-10 h-10" />
+        <span className="text-xl font-bold text-gray-800">Round</span>
+      </Link>
 
-    return (
-        <div className="min-w-[250px] w-[250px] h-screen bg-gray-100 p-3 flex flex-col border-r border-gray-300">
-
-            <Link href={"/"}>
-                <div className="flex items-center justify-center">
-                    <img className="w-[60px] h-[60px]" src="/assets/logo.png" alt="logo" />
-                    <p className="text-2xl font-semibold">Round</p>
-                </div>
+      {/* Navigation */}
+      <nav className="flex flex-col gap-1 flex-1">
+        {navItems.map(({ label, href, icon: Icon }) => {
+          const isActive = pathname === href
+          return (
+            <Link
+              key={href}
+              href={href}
+              className={`flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-all
+                ${isActive
+                  ? "bg-violet-600 text-white"
+                  : "text-gray-700 hover:bg-gray-100 hover:text-violet-600"
+                }`}
+            >
+              <Icon size={18} />
+              {label}
             </Link>
+          )
+        })}
+      </nav>
 
-            <div className="w-full h-[1px] bg-gray-300"></div>
-
-            <ul className="py-5 flex flex-col gap-1 flex-1">
-                <li>
-                    <Link className={`flex items-center text-gray-700 gap-1  p-2.5 rounded-lg hover:bg-violet-300 ${pathname === "/user/settings" && "bg-violet-600 text-white hover:bg-violet-500"}`} href={"/user/settings"}>
-                        <CircleUserRound />
-                        edit profile
-                    </Link>
-                </li>
-
-                <li>
-                    <Link className={`flex items-center text-gray-700 gap-1  p-2.5 rounded-lg hover:bg-violet-300 ${pathname === "/user/products" && "bg-violet-600 hover:bg-violet-500 text-white"}`} href={"/user/products"}>
-                        <PackageSearch />
-                        products
-                    </Link>
-                </li>
-
-                <li>
-                    <Link className={`flex items-center text-gray-700 gap-1  p-2.5 rounded-lg hover:bg-violet-300 ${pathname === "/user/charts" && "bg-violet-600 hover:bg-violet-500 text-white"}`} href={"/user/charts"}>
-                        <ChartLine />
-                        charts
-                    </Link>
-                </li>
-
-                <li>
-                    <Link className={`flex items-center text-gray-700 gap-1  p-2.5 rounded-lg hover:bg-violet-300 ${pathname === "/" && "bg-violet-600 hover:bg-violet-500 text-white"}`} href={"/"}>
-                        <ArrowLeftToLine />
-                        home page
-                    </Link>
-                </li>
-            </ul>
-
-            <button className="flex items-center justify-center cursor-pointer hover:bg-red-500 w-full py-2.5 bg-red-600 text-white rounded-lg gap-2">
-                <LogOut />
-                log out
-            </button>
-        </div>
-    )
+      {/* Logout Button */}
+      <button className="flex items-center gap-2 justify-center bg-red-500 hover:bg-red-600 text-white text-sm font-medium py-2 rounded-md transition">
+        <LogOut size={18} />
+        Log Out
+      </button>
+    </aside>
+  )
 }

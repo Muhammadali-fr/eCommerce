@@ -52,7 +52,9 @@ export default function Header() {
                 <ul className="flex items-center gap-3  text-sm text-gray-500">
                     <li><Search /></li>
                     <li><ShoppingCart /></li>
-                    <li>
+
+                    {/* user icon  */}
+                    {user && <li>
                         <Popover>
                             <PopoverTrigger className="flex items-center-justify-center cursor-pointer">
                                 {/* user icon here  */}
@@ -69,7 +71,7 @@ export default function Header() {
                                     <div className="bg-gray-200 w-full h-[1px] my-1"></div>
 
                                     <Link href={"/user/settings"}>
-                                        <li className="flex items center gap-1 p-2 hover:bg-gray-200 rounded cursor-pointer select-none">
+                                        <li className="flex items center gap-1 p-2 hover:bg-gray-200 hover:text-violet-600 rounded cursor-pointer select-none">
                                             <Settings />
                                             Settings
                                         </li>
@@ -77,7 +79,7 @@ export default function Header() {
                                 </ul>
                             </PopoverContent>
                         </Popover>
-                    </li>
+                    </li>}
                 </ul>
             </div>
         </div>

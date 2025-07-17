@@ -23,11 +23,11 @@ export default function UserSettings() {
 
         setPhotoLoader(true);
 
+        const url = URL.createObjectURL(file);
+        setUserProfile(url);
         setTimeout(() => {
-            const url = URL.createObjectURL(file);
-            setUserProfile(url);
             setPhotoLoader(false);
-        }, 2000)
+        }, 1000)
     }
 
     return (
