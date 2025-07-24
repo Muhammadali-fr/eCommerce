@@ -8,6 +8,12 @@ import { ReduxProvider } from "./store/ReduxProvider";
 // component 
 import StoreUser from "./components/StoreUser";
 
+// loader 
+import NextTopLoader from 'nextjs-toploader';
+
+// toaster 
+import { Toaster } from "react-hot-toast";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -34,7 +40,21 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ReduxProvider>
-          <StoreUser/>
+          <StoreUser />
+          <Toaster
+            position="top-center" // still needed but we’ll override it
+            toastOptions={{
+              style: {
+                background: '#393939ff',
+                color: '#fff',
+                fontSize: '14px',
+                borderRadius: '10px',
+                padding: '5px 10px',
+              },
+            }}
+
+          />
+          <NextTopLoader color="#7f22fe" />
           {children}
         </ReduxProvider>
       </body>

@@ -7,9 +7,9 @@ import { useRouter } from "next/navigation";
 export default function AuthLayout({children}: {children: React.ReactNode}){
     const router = useRouter()
         
-    // const user = useSelector((state: RootState) => state.user.user);
+    const user = useSelector((state: RootState) => state.user.user);
     const token = localStorage.getItem("accessToken");
-    if(token){
+    if(token && user){
         router.push("/");
     }
 

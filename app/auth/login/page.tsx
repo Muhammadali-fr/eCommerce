@@ -11,6 +11,7 @@ import { loginUser } from "@/app/api/services/auth";
 
 // loaders 
 import ButtonLoader from "@/app/components/ButtonLoader";
+import toast from "react-hot-toast";
 
 export default function Login() {
 
@@ -21,7 +22,7 @@ export default function Login() {
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!email) {
-            alert("Please enter your email");
+            toast("please enter email!");
             return;
         }
         
@@ -30,11 +31,11 @@ export default function Login() {
             const res = await loginUser({ email });
             console.log("Login response:", res);
         
-            alert("link sent to your mail!");
+            toast("link sent to your mail!");
         }
         catch (err) {
             console.error("Login error:", err);
-            alert("An error occurred while logging in. Please try again.");
+            toast("An error occurred while logging in. Please try again.");
         }finally{setLoader(false)};
     };
 

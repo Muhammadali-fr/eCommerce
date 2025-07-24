@@ -1,7 +1,10 @@
 "use client"
 
+// router dom 
 import { usePathname } from "next/navigation"
 import Link from "next/link"
+
+// link 
 import {
   CircleUserRound,
   PackageSearch,
@@ -9,6 +12,12 @@ import {
   LogOut,
   ArrowLeftToLine
 } from "lucide-react"
+
+// react 
+import { useState } from "react"
+
+// components 
+import Modal from "@/app/components/Modal";
 
 const navItems = [
   { label: "Edit Profile", href: "/user/settings", icon: CircleUserRound },
@@ -18,7 +27,8 @@ const navItems = [
 ]
 
 export default function Sidebar() {
-  const pathname = usePathname()
+  const pathname = usePathname();
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <aside className="w-64 h-screen bg-white border-r flex flex-col justify-between px-4 py-6 shadow-sm">
@@ -50,10 +60,16 @@ export default function Sidebar() {
       </nav>
 
       {/* Logout Button */}
-      <button className="flex items-center gap-2 justify-center bg-red-500 hover:bg-red-600 text-white text-sm font-medium py-2 rounded-md transition">
+      <button onClick={() => setOpenModal(true)} className="flex items-center gap-2 justify-center bg-red-500 hover:bg-red-600 text-white text-sm font-medium py-2 rounded-md transition">
         <LogOut size={18} />
         Log Out
       </button>
+
+
+      {/* modal  */}
+      <Modal show={openModal} onClose={() => setOpenModal(false)}>
+        <p>Hello there</p>
+      </Modal>
     </aside>
   )
 }
