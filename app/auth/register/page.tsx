@@ -12,6 +12,9 @@ import { registerUser } from "@/app/api/services/auth";
 // Loader
 import ButtonLoader from "@/app/components/ButtonLoader";
 
+// toast 
+import toast from "react-hot-toast";
+
 export default function Register() {
 
     const [name, setName] = useState("");
@@ -22,7 +25,7 @@ export default function Register() {
     const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!name || !email) {
-            alert("Please fill in all fields");
+            toast("Please fill in all fields");
             return;
         };
 
@@ -30,11 +33,11 @@ export default function Register() {
             setLoader(true);
             const res = await registerUser({ name, email });
             console.log("Registration response:", res);
-            alert("Registration successful! Please check your email to verify your account.");
+            toast(res?.message || "Registration successful! Please check your email to verify your account.");
         }
         catch (err) {
             console.error("Registration failed:", err);
-            alert("Registration failed. Please try again.");
+            toast(err?.response?.data.message || "Registration failed. Please try again.");
         } finally {
             setLoader(false);
         };
@@ -49,7 +52,7 @@ export default function Register() {
             </Link>
 
             {/* left  */}
-            <div className="w-full md:w-[50%] h-screen flex items-center justify-center ">
+            <div className="w-full md:w-[80%] h-screen flex items-center justify-center ">
                 <div className="w-[90%] max-w-[400px] text-gray-700 space-y-3">
 
                     <h1 className="text-4xl md:text-5xl font-bold text-black">Welcome</h1>
@@ -95,7 +98,7 @@ export default function Register() {
             </div>
 
             {/* right  */}
-            <div className="hidden md:block w-[50%] h-screen bg-gray-300">
+            <div className="hidden md:block w-[20%] h-screen bg-gray-300">
                 <img className="w-full h-full object-top object-cover" src="/assets/bg.png" alt="background-image" />
             </div>
 

@@ -30,12 +30,11 @@ export default function Login() {
             setLoader(true);
             const res = await loginUser({ email });
             console.log("Login response:", res);
-        
-            toast("link sent to your mail!");
+            toast(res?.message || "link sent to your mail!");
         }
         catch (err) {
             console.error("Login error:", err);
-            toast("An error occurred while logging in. Please try again.");
+            toast(err?.response?.data.message || "error while loging in");
         }finally{setLoader(false)};
     };
 
@@ -48,7 +47,7 @@ export default function Login() {
             </Link>
 
             {/* left  */}
-            <div className="w-full md:w-[50%] h-screen flex items-center justify-center ">
+            <div className="w-full md:w-[70%] h-screen flex items-center justify-center ">
                 <div className="w-[90%] max-w-[400px] text-gray-700 space-y-3">
 
 
@@ -88,7 +87,7 @@ export default function Login() {
             </div>
 
             {/* right  */}
-            <div className="hidden md:block w-[50%] h-screen bg-gray-300">
+            <div className="hidden md:block w-[30%] h-screen bg-gray-300">
                 <img className="w-full h-full object-top object-cover" src="/assets/bg.png" alt="background-image" />
             </div>
 
