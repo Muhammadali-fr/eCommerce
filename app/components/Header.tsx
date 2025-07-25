@@ -61,18 +61,18 @@ export default function Header() {
                                 <User />
 
                             </PopoverTrigger>
-                            <PopoverContent className="mx-5 w-[200px] p-1">
-                                <ul className="flex flex-col m-1 text-gray-700">
-                                    <li className="flex items-center gap-1 p-2 select-none">
-                                        <User />  {user?.name}
+                            <PopoverContent className="mx-5 w-[200px] p-1 rounded-lg">
+                                <ul className="flex flex-col m-1 text-[#7a7c7d]">
+                                    <li className="flex items-center gap-2 p-2 select-none">
+                                        <User size={22} />  {user?.name}
                                     </li>
 
                                     {/* line  */}
                                     <div className="bg-gray-200 w-full h-[1px] my-1"></div>
 
                                     <Link href={"/user/settings"}>
-                                        <li className="flex items center gap-1 p-2 hover:bg-gray-200 hover:text-violet-600 rounded cursor-pointer select-none">
-                                            <Settings />
+                                        <li className="flex items center gap-2 p-2 hover:bg-[#f5f7f9] rounded-lg cursor-pointer select-none">
+                                            <Settings size={22} />
                                             Settings
                                         </li>
                                     </Link>
