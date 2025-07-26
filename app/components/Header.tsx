@@ -51,7 +51,9 @@ export default function Header() {
 
                 <ul className="flex items-center gap-3  text-sm text-gray-500">
                     <li><Search /></li>
-                    <li><ShoppingCart /></li>
+                    <Link href={"/cart"}>
+                        <li><ShoppingCart /></li>
+                    </Link>
 
                     {/* user icon  */}
                     {user && <li>
