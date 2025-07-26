@@ -5,11 +5,13 @@ import React from "react";
 // components 
 import Sidebar from "./components/Sidebar";
 
-export default function UserLayout({children} : {children: React.ReactNode}) {
+export default function UserLayout({ children }: { children: React.ReactNode }) {
     return (
         <div className="flex items-center">
-            <Sidebar/>
-            {children}
+            <Sidebar />
+            <div className="bg-[#f6f6f6] flex items-center justify-center w-full min-h-screen">
+                {children}
+            </div>
         </div>
     )
 }
