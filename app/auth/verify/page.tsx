@@ -54,8 +54,8 @@ export default function VerifyAccount() {
       {/* left  */}
       <div className="w-full md:w-[50%] h-screen flex items-center justify-center ">
         <div className="w-[90%] max-w-[420px] bg-white border border-gray-200 text-gray-800 rounded-xl p-5  space-y-5">
-          <div className="flex items-center">
-            <img className="w-[80px] h-[80px] rounded-full" src="/assets/logo.png" alt="logo" />
+          <div className="flex items-center gap-2">
+            <img className="w-[80px] h-[80px] rounded-full" src="/assets/logo.svg" alt="logo" />
             <p className="text-2xl font-semibold">Round</p>
           </div>
           <h1 className="text-2xl font-semibold"> Verifying your account...</h1>

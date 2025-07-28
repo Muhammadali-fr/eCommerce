@@ -26,8 +26,8 @@ export default function Header() {
         <div className="py-2 border-b border-[#e8e7e5] bg-gray-100">
             <div className="max-w-[990px] w-[90%] mx-auto flex items-center justify-between">
                 <div className="flex items-center">
-                    <Link href={"/"} className="flex items-center">
-                        <img className="w-[50px] h-[50px] select-none" src="/assets/logo.png" alt="logo" />
+                    <Link href={"/"} className="flex items-center gap-2">
+                        <img className="w-[35px] h-[35px] select-none" src="/assets/logo.svg" alt="logo" />
                         <p className="text-2xl text-black font-semibold">Round</p>
                     </Link>
                 </div>

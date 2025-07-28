@@ -48,7 +48,7 @@ export default function Register() {
 
             {/* logo  */}
             <Link href={"/"}>
-                <img className="absolute top-5 left-5 w-[50px] h-[50px] rounded-full" src="/assets/logo.png" alt="logo" />
+                <img className="absolute top-5 left-5 w-[50px] h-[50px] rounded-full" src="/assets/logo.svg" alt="logo" />
             </Link>
 
             {/* left  */}
@@ -56,7 +56,7 @@ export default function Register() {
                 <div className="w-[90%] max-w-[400px] text-gray-700 space-y-3">
 
                     <h1 className="text-4xl md:text-5xl font-bold text-black">Welcome</h1>
-                    <p>Sign up to your acconct</p>
+                    <p>Sign up to your account</p>
                     {/* mail  */}
                     <a href="https://mail.google.com/">
                         <button type="button" className="flex items-center justify-center w-full gap-2 text-gray-700 border border-gray-400 rounded-lg cursor-pointer hover:bg-gray-100 py-2 mb-3">
@@ -85,7 +85,7 @@ export default function Register() {
                             <input value={email} onChange={e => setEmail(e.target.value)} className="p-2 border border-gray-400 rounded-lg" type="text" />
                         </label>
 
-                        <button type="submit" className="w-full h-[42px] bg-[#4c64d9] hover:bg-[#4c80d9] text-white text-center rounded-lg cursor-pointer flex items-center justify-center">{loader ? <ButtonLoader /> : "Log in"}</button>
+                        <button type="submit" className="w-full h-[42px] bg-[#4c64d9] hover:bg-[#4c80d9] text-white text-center rounded-lg cursor-pointer flex items-center justify-center">{loader ? <ButtonLoader /> : "create account"}</button>
                     </form>
 
                     <p className="text-sm">Have an account? <Link className="text-blue-700 underline" href={"/auth/login"}>Login</Link></p>
@@ -98,7 +98,7 @@ export default function Register() {
             </div>
 
             {/* right  */}
-            <div className="hidden md:block w-[20%] h-screen bg-gray-300">
+            <div className="hidden md:block w-[40%] h-screen bg-gray-300">
                 <img className="w-full h-full object-top object-cover" src="/assets/bg.png" alt="background-image" />
             </div>
 

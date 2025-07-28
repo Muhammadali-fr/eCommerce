@@ -43,7 +43,7 @@ export default function Login() {
 
             {/* logo  */}
             <Link href={"/"}>
-                <img className="absolute top-5 left-5 w-[50px] h-[50px] rounded-full" src="/assets/logo.png" alt="logo" />
+                <img className="absolute top-5 left-5 w-[50px] h-[50px] rounded-full" src="/assets/logo.svg" alt="logo" />
             </Link>
 
             {/* left  */}
@@ -87,7 +87,7 @@ export default function Login() {
             </div>
 
             {/* right  */}
-            <div className="hidden md:block w-[30%] h-screen bg-gray-300">
+            <div className="hidden md:block w-[40%] h-screen bg-gray-300">
                 <img className="w-full h-full object-top object-cover" src="/assets/bg.png" alt="background-image" />
             </div>
 

@@ -51,8 +51,8 @@ export default function Sidebar() {
   return (
     <aside className="w-64 h-screen bg-white border-r flex flex-col justify-between px-4 py-6 shadow-sm">
       {/* Logo */}
-      <Link href="/" className="flex items-center gap-3 mb-6 px-2">
-        <img src="/assets/logo.png" alt="logo" className="w-10 h-10" />
+      <Link href="/" className="flex items-center gap-3 mb-6">
+        <img src="/assets/logo.svg" alt="logo" className="w-10 h-10" />
         <span className="text-xl font-bold text-gray-800">Round</span>
       </Link>
 
