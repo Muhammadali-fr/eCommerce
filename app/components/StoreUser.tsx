@@ -38,8 +38,8 @@ export default function StoreUser() {
     return (
       <div className="fixed top-0 bottom-0 left-0 right-0 flex flex-col items-center justify-between bg-white text-white z-100 py-10">
         <span></span>
-        <img className="w-[120px] h-[120px] rounded-full" src="/assets/logo.png" alt="logo" />
-        <p>Nuna</p>
+        <img className="w-[120px] h-[120px] rounded-full" src="/assets/logo.svg" alt="logo" />
+        <p className="text-black">Round</p>
       </div>
     );
   }
