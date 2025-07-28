@@ -1,3 +1,5 @@
+
+import { Heart } from "lucide-react"
 export default function Cart(){
     
     return(
@@ -6,7 +8,8 @@ export default function Cart(){
             <p>5 products in Your cart</p>
 
             <div className="w-full border border-gray-200">
-                
+                <Heart />
+                <img src="./assets/car.png" alt="photo" />
             </div>
         </div>
     )
