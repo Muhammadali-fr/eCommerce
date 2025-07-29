@@ -8,24 +8,24 @@ export default function Cart() {
     return (
         <div className="w-[90%] max-w-[990px] mx-auto">
             <p className="text-[34px] font-bold text-left py-2">Shopping cart</p>
-            <div className="w-full flex">
+            <div className="w-full flex justify-center">
 
-                <div className=" w-[80%] ">
+                <div className=" ">
                     <div className="flex flex-col gap-5">
                         <div className="flex items-center justify-between gap-6 py-3">
-                            <input className="scale-175 cursor-pointer" type="checkbox" name="" id="" />
+                            <input className="scale-150 cursor-pointer" type="checkbox" name="" id="" />
                             <p className="shrink-0 text-[18px] font-bold">Select all variations (1)</p>
                             <span className="w-[100%] h-[2px] bg-[#dddddd]"></span>
                         </div>
                         <div className="flex items-center gap-6">
-                            <input className="scale-175 cursor-pointer" type="checkbox" name="" id="" />
+                            <input className="scale-150 cursor-pointer" type="checkbox" name="" id="" />
                             <p className="shrink-0 text-[18px] font-bold">Shenzhen Boer Epoxy Co. Ltd</p>
                         </div>
                         <div className="w-full flex gap-6 ">
                             <div className="flex items-center justify-center">
-                                <input className="scale-175 cursor-pointer" type="checkbox" name="" id="" />
+                                <input className="scale-150 cursor-pointer" type="checkbox" name="" id="" />
                             </div>
-                            <div className="w-38 h-38 border border-[1px] rounded-lg">
+                            <div className="w-40 h-40 border border-[1px] rounded-lg">
                                 <img className="w-full h-full rounded-lg object-cover cursor-pointer shrink-0" src="./assets/phone.png" alt="photo" />
                             </div>
                             <div className="w-[80%] py-1 flex flex-col gap-1">
@@ -43,12 +43,20 @@ export default function Cart() {
                                     <p className="text-[15px]">1950 sold recently</p>
                                 </div>
                                 <p className="text-[15px]">Min. order: <span> 10 pieces</span></p>
+                                <div className="flex items-center justify-between">
+                                    <div className="flex items-center justify-between gap-5 bg-white  border-t border-b">
+                                        <button className="w-11 h-11 rounded-full border flex items-center justify-center hover:bg-[#e6e6e6] cursor-pointer"><Minus className="w-5 h-5 text-[#333333]" /></button>
+                                        <p className="text-[16px] font-bold">1</p>
+                                        <button className="w-11 h-11 rounded-full border flex items-center justify-center hover:bg-[#e6e6e6] cursor-pointer"><Plus className="w-5 h-5 text-[#333333]" /></button>
+                                    </div>
+                                    <p className="text-[18px] font-bold">UZS 34,443.16</p>
+                                </div>
                             </div>
                         </div>
-                        <div className="flex items-center justify-end">
+                        {/* <div className="flex items-center justify-end">
                             <div className="w-[95%] bg-[#f4f4f4] flex items-center justify-between gap-7 py-3 rounded-lg">
                                 <div>
-                                    <input className="scale-175 cursor-pointer" type="checkbox" name="" id="" />
+                                    <input className="scale-150 cursor-pointer" type="checkbox" name="" id="" />
                                 </div>
                                 <img className="w-12" src="./assets/subPhone.png" alt="" />
                                 <div>
@@ -66,11 +74,13 @@ export default function Cart() {
                                 <p className="text-[18px] font-bold">UZS 34,443.16</p>
                                 <Trash2 className="w-6 h-6 text-[#666666] hover:text-[#413c39]" />
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
-                <div></div>
+                <div>
+                    <p>sds</p>
+                </div>
 
             </div>
         </div>
