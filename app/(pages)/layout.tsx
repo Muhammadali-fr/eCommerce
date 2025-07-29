@@ -5,9 +5,11 @@ import Footer from "../components/Footer";
 
 export default function PagesLayout({ children }: { children: React.ReactNode }) {
     return (
-        <div className="min-h-screen flex flex-col justify-between">
+        <div className="min-h-screen flex flex-col">
             <Header />
-            {children}
+            <div className="flex-grow">
+                {children}
+            </div>
             <Footer />
         </div>
     )
