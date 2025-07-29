@@ -1,6 +1,8 @@
 
 import { Trash2 } from "lucide-react"
-
+import { ChevronRight } from "lucide-react"
+import { Minus } from "lucide-react"
+import { Plus } from "lucide-react"
 export default function Cart() {
 
     return (
@@ -30,7 +32,7 @@ export default function Cart() {
                                 <div className="w-[100%] flex justify-between">
                                     <p className="text-[16px] font-bold max-w-[550px] cursor-pointer">Anti-Shock Clear Anti-Yellow I Phone Cases Luxury Wholesale Matte Tpu Luxury Cell Phone Cases for Iphones 16 15 14 13 Pro Max</p>
                                     <div className="cursor-pointer">
-                                        <Trash2 />
+                                        <Trash2 className="w-6 h-6 text-[#666666] hover:text-[#413c39]" />
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-2">
@@ -44,11 +46,25 @@ export default function Cart() {
                             </div>
                         </div>
                         <div className="flex items-center justify-end">
-                            <div className="w-[95%] bg-[#f4f4f4] flex items-center">
+                            <div className="w-[95%] bg-[#f4f4f4] flex items-center justify-between gap-7 py-3 rounded-lg">
                                 <div>
                                     <input className="scale-175 cursor-pointer" type="checkbox" name="" id="" />
                                 </div>
-                                <img className="w-15" src="./assets/subPhone.png" alt="" />
+                                <img className="w-12" src="./assets/subPhone.png" alt="" />
+                                <div>
+                                    <div className="flex items-center justify-center text-[15px] hover:bg-[#e6e6e6] cursor-pointer">
+                                        <p className="max-w-[270px] truncate">color: F217; package: OPP BAG; compatible model: For iPhone 15</p>
+                                        <ChevronRight className="w-5 h-5" />
+                                    </div>
+                                    <p className="text-[15px]"><span className="font-bold"> UZS 34,443.16 </span>/ piece </p>
+                                </div>
+                                <div className="flex items-center justify-between gap-5 bg-white  border-t border-b">
+                                    <button className="w-11 h-11 rounded-full border flex items-center justify-center hover:bg-[#e6e6e6] cursor-pointer"><Minus className="w-5 h-5 text-[#333333]" /></button>
+                                    <p className="text-[16px] font-bold">1</p>
+                                    <button className="w-11 h-11 rounded-full border flex items-center justify-center hover:bg-[#e6e6e6] cursor-pointer"><Plus className="w-5 h-5 text-[#333333]" /></button>
+                                </div>
+                                <p className="text-[18px] font-bold">UZS 34,443.16</p>
+                                <Trash2 className="w-6 h-6 text-[#666666] hover:text-[#413c39]" />
                             </div>
                         </div>
                     </div>
