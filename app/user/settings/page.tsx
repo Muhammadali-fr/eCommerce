@@ -34,11 +34,11 @@ export default function UserSettings() {
         <div className="w-[800px] min-h-[90vh] mx-auto flex flex-col gap-5">
             <h1 className="text-2xl font-bold">Account Information</h1>
 
-            <div className="p-5 border border-gray-200 rounded-lg bg-white">
+            <div className="p-5 border border-gray-200 rounded-3xl bg-white">
 
 
                 {/* update photo  */}
-                <div className="w-full p-3 px-4 rounded-lg bg-gray-100 flex items-center justify-between">
+                <div className="w-full  flex items-center justify-between">
 
                     <div className="flex items-center gap-2">
                         <img className="w-[60px] h-[60px] rounded-full object-center object-cover" src={userProfile ? userProfile : "/assets/default-user.png"} alt="user-profile" />
