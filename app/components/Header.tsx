@@ -52,7 +52,7 @@ export default function Header() {
                 <ul className="flex items-center gap-3  text-sm text-gray-500">
                     <li><Search /></li>
                     <Link href={"/cart"}>
-                        <li><ShoppingCart /></li>
+                        <li className="relative"><ShoppingCart /> <span className="text-xs text-white bg-violet-600 w-[15px] h-[15px] rounded-full flex items-center justify-center font-semibold absolute top-0 left-3">2</span></li>
                     </Link>
 
                     {/* user icon  */}
@@ -60,13 +60,18 @@ export default function Header() {
                         <Popover>
                             <PopoverTrigger className="flex items-center-justify-center cursor-pointer">
                                 {/* user icon here  */}
-                                <User />
-
+                                {/* <User /> */}
+                                <div className="w-[25px] h-[25px] rounded-full bg-white">
+                                    <img className="w-full h-full rounded-full" src="/assets/default-user.png" alt="user" />
+                                </div>
                             </PopoverTrigger>
                             <PopoverContent className="mx-5 w-[200px] p-1 rounded-lg">
                                 <ul className="flex flex-col m-1 text-[#7a7c7d]">
                                     <li className="flex items-center gap-2 p-2 select-none">
-                                        <User size={22} />  {user?.name}
+                                        <div className="w-[25px] h-[25px] rounded-full bg-gray-200">
+                                            <img className="w-full h-full rounded-full" src="/assets/default-user.png" alt="user" />
+                                        </div>
+                                        {user?.name}
                                     </li>
 
                                     {/* line  */}
