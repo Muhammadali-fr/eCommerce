@@ -35,7 +35,7 @@ export default function Home() {
 
         {/* Swiper */}
         <Swiper
-          className="w-full h-[400px] rounded-lg"
+          className="w-full h-[400px] rounded-lg bg-gray-200"
           modules={[Pagination, Navigation]}
           pagination={{ clickable: true }}
           loop={true}

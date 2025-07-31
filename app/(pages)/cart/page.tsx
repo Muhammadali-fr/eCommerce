@@ -13,8 +13,8 @@ import Link from "next/link"
 export default function Cart() {
 
     return (
-        <div className="w-[90%] max-w-[990px] mx-auto flex items-start justify-between py-3 gap-1">
-            <div className="w-[69%] rounded-xl border p-5 space-y-3">
+        <div className="w-[90%] max-w-[990px] mx-auto flex items-start justify-between py-3 gap-3">
+            <div className="w-[70%] rounded-xl border p-5 space-y-3">
 
                 {/* Cart top  */}
                 <div className="flex items-center justify-between">
@@ -85,7 +85,9 @@ export default function Cart() {
             </div>
 
             {/* checkout  */}
-            <CheckOut />
+            <div className="w-[30%]">
+                <CheckOut />
+            </div>
         </div>
     )
 }
