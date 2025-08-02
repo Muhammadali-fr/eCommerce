@@ -62,16 +62,16 @@ export default function Header() {
                                 {/* user icon here  */}
                                 {/* <User /> */}
                                 <div className="w-[25px] h-[25px] rounded-full bg-white">
-                                    <img className="w-full h-full rounded-full" src="/assets/default-user.png" alt="user" />
+                                    <img className="w-full h-full rounded-full" src={user ? user.profile : "/assets/bg.png"} alt="user" />
                                 </div>
                             </PopoverTrigger>
                             <PopoverContent className="mx-5 w-[200px] p-1 rounded-lg">
                                 <ul className="flex flex-col m-1 text-[#7a7c7d]">
                                     <li className="flex items-center gap-2 p-2 select-none">
                                         <div className="w-[25px] h-[25px] rounded-full bg-gray-200">
-                                            <img className="w-full h-full rounded-full" src="/assets/default-user.png" alt="user" />
+                                            <img className="w-full h-full rounded-full" src={user ? user.profile : "/assets/bg.png"} alt="user" />
                                         </div>
-                                        {user?.name}
+                                        {user ? user?.name : "username"}
                                     </li>
 
                                     {/* line  */}
