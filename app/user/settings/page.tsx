@@ -48,7 +48,17 @@ export default function UserSettings() {
                     </div>
                 </form>
             </div>
-
+            <div className="flex items-center justify-start">
+                <div className="border border-gray-400 rounded-lg p-3 flex items-center justify-between gap-5">
+                    <div>
+                        <p className="text-[16px]">Lorem ipsum dolor sit amet consectetur</p>
+                        <p className="max-w-[300px] text-[10px]">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, neque!</p>
+                    </div>
+                    <div>
+                        switch
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
