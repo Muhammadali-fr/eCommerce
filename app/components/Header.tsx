@@ -56,7 +56,7 @@ export default function Header() {
                     </Link>
 
                     {/* user icon  */}
-                    {user && <li>
+                    {!user && <li>
                         <Popover>
                             <PopoverTrigger className="flex items-center-justify-center cursor-pointer">
                                 {/* user icon here  */}
