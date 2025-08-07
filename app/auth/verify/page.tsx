@@ -21,6 +21,8 @@ export default function VerifyAccount() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const token = searchParams.get("token");
+  console.log(token);
+  
 
   useEffect(() => {
     const handleVerify = async () => {
